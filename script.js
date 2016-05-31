@@ -52,7 +52,7 @@ function generate() {
 
 	var url = 'https://twitter.com/intent/tweet/?text='+tweetTextEncoded+tweetUrl+tweetVia+tweetHashtags;
 
-	var tweetStyles = document.getElementById('tweetStyles').value || defaultStyles;
+	var tweetStyles = defaultStyles;
 
 	var element = '<a href="'+url+'" style="'+tweetStyles+'" target="_blank">\
 					<span>'+tweetText+'</span> \
