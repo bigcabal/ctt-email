@@ -56,7 +56,7 @@ function generate() {
 
 	var element = '<a href="'+url+'" style="'+tweetStyles+'" target="_blank">\
 					<span>'+tweetText+'</span> \
-					<img src="https://raw.githubusercontent.com/ireade/inlinetweetjs-email/master/twitter.png" style="height: 1em; width: auto;"> \
+					<img src="https://raw.githubusercontent.com/ireade/inlinetweetjs-email/master/twitter.png" style="width: 1em; height: auto;"> \
 					</a>';
 	document.getElementsByClassName('preview')[0].innerHTML = element;
 
