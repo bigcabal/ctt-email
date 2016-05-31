@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Click-to-Tweet for Email Generator</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+	<div class="container">
+
+		<h1> <img src="tc.jpg" alt="" class="tclogo"> Tweetable Text Code Generator for Email Newsletter</h1>
+
+		<form>
+				
+			<label>
+				<span class="main-label">Tweet Text *</span>
+				<textarea id="tweetText" class="text-input-field" placeholder="Type the tweetable text here" required></textarea>
+
+			</label>
+
+			<label>
+				<span class="main-label">Tweet URL</span>
+				<input type="text" id="tweetUrl" value="http://techcabal.com">
+			</label>
+
+			<label>
+				<span class="main-label">Tweet Hashtags</span>
+				<input type="text" id="tweetHashtags" placeholder="e.g. techbcabal,technology">
+				<span class="requirement">A comma-separated list of hastags with no spaces (without the hastags)</span>
+			</label>
+
+			<label>
+				<span class="main-label">Tweet Via</span>
+				<input type="text" id="tweetVia" value="TechCabal">
+				<span class="requirement">Only one twitter username (without the @) </span>
+			</label>
+			
+			<p>
+				Characters Left: <span class="tweet-character-count"></span>
+			</p>
+			<br>
+
+			<label class="tweet-styles">
+				<span class="main-label">Tweet Styles</span>
+				<textarea id="tweetStyles">
+border-bottom: 1px dotted rgb(0,172,237);
+background-color: rgba(0,172,237,0.1);
+position: relative;
+font-style: italic;
+color: rgb(0,172,237);
+text-decoration: none;
+				</textarea>
+			</label>
+			
+
+			<button class="generate" type="submit">Generate</button>
+			
+		</form>
+		
+		
+		
+
+	
+		<section class="section-preview" id="sectionPreview">
+			<h2>Preview</h2>
+
+			<p class="preview"></p>
+		</section>
+
+		<section class="section-code">
+			<h2>Copy this code to the newsletter</h2>
+<pre class="code"></pre>
+		</section>
+
+
+
+	</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
