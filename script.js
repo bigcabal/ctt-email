@@ -74,13 +74,9 @@ var generateButton = document.getElementsByClassName('generate')[0];
 generateButton.addEventListener('click', function(e) {
 	generate();
 	e.preventDefault();
-
 	location.href = '#sectionPreview';
-
 	return false;
 });
-
-
 
 
 
