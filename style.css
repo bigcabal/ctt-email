@@ -81,6 +81,18 @@ section {
 }
 
 
+.preview-tweet {
+	display: block;
+    border: 1px solid rgb(230,230,230);
+    padding: 5px 10px;
+    background-color: rgb(250,250,250);
+}
+
+.preview-tweet span {
+	color: rgb(0,172,237);
+}
+
+
 
 
 

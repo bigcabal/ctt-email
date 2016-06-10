@@ -40,20 +40,28 @@ function generate() {
 	var tweetText = document.getElementById('tweetText').value;
 	var tweetTextEncoded = encodeURIComponent(tweetText);
 
-	var tweetUrl = document.getElementById('tweetUrl').value;
-	tweetUrl = '&url='+tweetUrl || '';
+	var tweetUrlRaw = document.getElementById('tweetUrl').value;
+	var tweetUrl = '&url='+tweetUrlRaw || '';
 
-	var tweetHashtags = document.getElementById('tweetHashtags').value;
-	tweetHashtags = '&hashtags='+tweetHashtags || '';
+	var tweetHashtagsRaw = document.getElementById('tweetHashtags').value;
+	var tweetHashtags = '&hashtags='+tweetHashtagsRaw || '';
 
-	var tweetVia = document.getElementById('tweetVia').value;
-	tweetVia = '&via='+tweetVia || '';
+	var tweetViaRaw = document.getElementById('tweetVia').value;
+	var tweetVia = '&via='+tweetViaRaw || '';
 
 
 	var url = 'https://twitter.com/intent/tweet/?text='+tweetTextEncoded+tweetUrl+tweetVia+tweetHashtags;
 
 	var tweetStyles = defaultStyles;
 
+
+
+
+
+
+
+
+	/* Preview tweetable */
 	var element = '<a href="'+url+'" style="'+tweetStyles+'" target="_blank">\
 					<span>'+tweetText+'</span> \
 					<img src="https://raw.githubusercontent.com/ireade/inlinetweetjs-email/master/twitter.png" style="width: 1em; height: auto;"> \
@@ -61,6 +69,25 @@ function generate() {
 	document.getElementsByClassName('preview')[0].innerHTML = element;
 
 
+	/* Preview tweet */
+	tweetUrlRaw = tweetUrlRaw ? ' <span>'+tweetUrlRaw+'</span>' : ' ';
+	if ( tweetHashtagsRaw.length > 1 ) {
+		var hashtags = document.getElementById('tweetHashtags').value.split(',');
+		for (var i = 0; i < hashtags.length; i++) {
+			hashtags[i] = '<span>#'+hashtags[i]+'</span>';
+		}
+		tweetHashtags = ' ' + hashtags.join(' ');
+
+	} else {
+		tweetHashtags = ' ';
+	}
+	tweetViaRaw = tweetViaRaw ? ' via <span>@'+tweetViaRaw+'</span>' : ' ';
+
+	var tweetPreview = tweetText + tweetUrlRaw + tweetHashtags + tweetViaRaw;
+	document.getElementsByClassName('preview-tweet')[0].innerHTML = tweetPreview;
+
+
+	/* Code to copy */
 	element = element.replace(/</g, '&lt;');
 	document.getElementsByClassName('code')[0].innerHTML = element;
 
@@ -85,7 +112,7 @@ function calcTweetCount() {
 
 	var tweetTextCount = document.getElementById('tweetText').value.length;
 	var tweetViaCount = document.getElementById('tweetVia').value.length;
-	var tweetUrlCount = document.getElementById('tweetUrl').value.length;
+	var tweetUrlCount = document.getElementById('tweetUrl').value ? 24 : 0;
 	var tweetHashtagsCount = document.getElementById('tweetHashtags').value.length;
 
 	if ( tweetHashtagsCount > 1 ) {
